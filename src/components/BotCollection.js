@@ -1,18 +1,26 @@
 import React from 'react';
+import Bots from './Bots';
 
 function BotCollection({bots}){
     const botDisplay = bots.map(bot => {
         return ( 
-        <div key={bot.id} className={bot.bot_class}>
-            <img src={bot.avater_url} alt={bot.name}/>
-            <h3>{bot.name}</h3>
-            <p>{bot.catchphrase}</p>
-             </div>
+        <Bots 
+        key={bot.id}
+        name={bot.name}
+        id={bot.id}
+        avatar_url={bot.avatar_url}
+        catchphrase={bot.catchphrase}/>
         )
 })
+     function filterArmy(){
+         
+        const myArmy= bots.filter((bot)=>{
+            return bot.id === id
+        })
+     }
 
     return (
-        <div>
+        <div className='col-3 p-1'>
             {botDisplay}
         </div>
     )
