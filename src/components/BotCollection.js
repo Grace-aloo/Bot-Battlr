@@ -1,7 +1,7 @@
 import React from 'react';
 import Bots from './Bots';
 
-function BotCollection({bots}){
+function BotCollection({bots,setBot}){
     const botDisplay = bots.map(bot => {
         return ( 
         <Bots 
@@ -9,16 +9,12 @@ function BotCollection({bots}){
         name={bot.name}
         id={bot.id}
         avatar_url={bot.avatar_url}
-        catchphrase={bot.catchphrase}/>
+        catchphrase={bot.catchphrase}
+        bots={bots}
+        setBot={setBot}/>
         )
 })
-     function filterArmy(){
-         
-        const myArmy= bots.filter((bot)=>{
-            return bot.id === id
-        })
-     }
-
+     
     return (
         <div className='col-3 p-1'>
             {botDisplay}

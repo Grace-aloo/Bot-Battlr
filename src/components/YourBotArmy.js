@@ -1,6 +1,9 @@
 import React from "react";
 
-function BotArmy(){
+function BotArmy({bots}){
+
+    
+
     return <div></div>
 }
 

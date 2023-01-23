@@ -2,6 +2,7 @@
 import './App.css';
 import React,{useEffect, useState} from 'react';
 import BotCollection from './components/BotCollection';
+import BotArmy from './components/YourBotArmy';
 
 function App() {
   const [bots,setBot]=useState([])
@@ -12,10 +13,19 @@ function App() {
        .then(data => setBot(data))
   },[])
 
+  function filterArmy(id){
+         
+    const myArmy= bots.filter((bot)=>{
+        return bot.id === id
+    })
+    setBot(myArmy)
+ }
+
   return (
      (
     <div>
-      <BotCollection bots={bots}/>
+      <BotArmy bots={bots} filterArmy={filterArmy}/>
+      <BotCollection bots={bots} setBot={setBot}/>
     </div>
     )
   );
