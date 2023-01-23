@@ -6,6 +6,7 @@ import BotArmy from './components/YourBotArmy';
 
 function App() {
   const [bots,setBot]=useState([])
+  const [army,setArmy]=useState([])
   
   useEffect(() => {
     fetch("http://localhost:3000/bots" )
@@ -13,19 +14,21 @@ function App() {
        .then(data => setBot(data))
   },[])
 
-  function filterArmy(id){
+//   function filterArmy(id){
          
-    const myArmy= bots.filter((bot)=>{
-        return bot.id === id
-    })
-    setBot(myArmy)
- }
+//     const myArmy= bots.filter((bot)=>{
+//         return bot.id === id
+//     })
+//     setBot(myArmy)
+//  }
 
   return (
      (
     <div>
-      <BotArmy bots={bots} filterArmy={filterArmy}/>
-      <BotCollection bots={bots} setBot={setBot}/>
+      <BotArmy bots={bots} army={army} 
+      setArmy={setArmy}/>
+      <BotCollection bots={bots} setBot={setBot} 
+      setArmy={setArmy} army={army} />
     </div>
     )
   );

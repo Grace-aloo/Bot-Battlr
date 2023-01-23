@@ -1,6 +1,8 @@
 import React from "react";
 
-function Bots({id,name,avatar_url,catchphrase,bots,setBot}){
+function Bots({bots,setBot,setArmy,army}){
+
+    const {id}=bots
     
      function handleDeleteBot(){
         const availableBots= bots.filter((bot)=>{
@@ -8,14 +10,29 @@ function Bots({id,name,avatar_url,catchphrase,bots,setBot}){
         })
         setBot(availableBots)
      }
-    return <div key={id} className="card h-100">
-        <img src={avatar_url} alt={name} className='card-img-top'/>
+     function handleclick(bot){
+        // if (!army.find((botInArmy) => botInArmy.id === bot.id)) {
+        //     setArmy([...army, bot]);
+        //   }
+        if (!army.find((botInArmy) => (botInArmy.id === bot.id)))  {
+            setArmy([...army, bot]);
+          }
+    }
+      
+    return (
+        <div>
+            <h1>Bot Collection</h1>
+             {bots.map((bot)=>
+    <div key={bot.id} className="card h-100" 
+    onClick={()=>handleclick(bot)}>
+        <img src={bot.avatar_url} alt={bot.name} className='card-img-top'/>
             <div className='card-body'>
-            <h3 className='card-title'>{name}</h3>
-            <p className='card-text'>{catchphrase}</p>
+            <h3 className='card-title'>{bot.name}</h3>
+            <p className='card-text'>{bot.catchphrase}</p>
         <button onClick={handleDeleteBot}>X</button>
         </div>
-     </div>
+     </div>)}
+     </div>)
 }
 
 export default  Bots
