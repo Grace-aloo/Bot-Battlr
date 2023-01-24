@@ -1,4 +1,8 @@
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart,faSkull,faShieldHalved } from '@fortawesome/free-solid-svg-icons'
+
+
 
 function Bots({bots,setArmy,army,setBot}){
 
@@ -32,6 +36,11 @@ function Bots({bots,setArmy,army,setBot}){
             <p >{bot.catchphrase}</p>
         {/* </div> */}
        
+    <span>
+        <p><FontAwesomeIcon icon={faHeart} />{bot.health}</p>
+        <p><FontAwesomeIcon icon={faSkull}/>{bot.damage}</p>
+        <p><FontAwesomeIcon icon={faShieldHalved}/>{bot.armor}</p>
+    </span>
         </div>
         <div>
                 <button onClick={()=>handleDeleteBot(bot)}>X</button>
