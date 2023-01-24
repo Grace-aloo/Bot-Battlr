@@ -24,7 +24,7 @@ function BotCollection({bots,setBot,setArmy,army}){
 // }
      
     return (
-        <div className='col-3 p-1'>
+        <div >
             {botDisplay}
         </div>
     )

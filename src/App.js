@@ -9,9 +9,9 @@ function App() {
   const [army,setArmy]=useState([])
   
   useEffect(() => {
-    fetch("http://localhost:3000/bots" )
+    fetch("https://api.npoint.io/2c35216e5786f776549f" )
        .then(res => res.json())
-       .then(data => setBot(data))
+       .then(data => setBot(data.bots))
   },[])
 
 //   function filterArmy(id){
@@ -24,11 +24,15 @@ function App() {
 
   return (
      (
-    <div>
+    <div className='app-cont'>
+       <div className='top'>
       <BotArmy bots={bots} army={army} 
       setArmy={setArmy}/>
+     </div>
+     <div className="top">
       <BotCollection bots={bots} setBot={setBot} 
       setArmy={setArmy} army={army} />
+    </div>
     </div>
     )
   );
