@@ -2,7 +2,7 @@
 
 ## Description
 
-  
+This is an app that allows you to add the bots you wish into your bot army. You can also remove them as you wish from your army or delete them entirely. On opening the app, you get to see a list of bots that you can choose from.
 
 ## Installation
 ### Requirements
